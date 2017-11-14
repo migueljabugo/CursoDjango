@@ -1,0 +1,35 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Series DB</h1>
+    <p class="lead">Series DB es una base de datos de serie de television</p>
+    <a class="btn btn-primary btn-large" href="/">Nueva serie</a>
+</div>
+
+<div class="row">
+    <table class="table">
+        <tr>
+            <th>Titulo</th>
+            <th>Productora</th>
+            <th>Estado</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+
+        {% for serie in series %}
+        <tr>
+            <td>{{serie.titulo}}</td>
+            <td>{{serie.productora}}</td>
+            <td>{{serie.get_estado_display}}</td>
+            <td>{{serie.fecha_publicacion}}</td>
+            <td><a class="btn btn-success" href="/">ver</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    
+</div>
+
+{% endblock %}
