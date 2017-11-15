@@ -3612,3 +3612,7 @@ C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extens
 2017-11-14T15:41:11: Saving group "c:\users\alumno\documents\cursodjango\cursodjango\cursodjango\env\lib\site-packages\pytz"
 2017-11-14T15:41:11: End of group "c:\users\alumno\documents\cursodjango\cursodjango\cursodjango\env\lib\site-packages\pytz"
 2017-11-14T15:41:13: Deleting 0 files
+
+2017-11-15T13:42:52: Start analysis
+2017-11-15T13:42:52: IncludeModulesFromModulePath = win32com
+2017-11-15T13:42:55: Deleting 0 files
