@@ -1,0 +1,19 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+<h1>Listado</h1>
+
+<div class="panel panel-default">
+    <div class="panel-heading">{{title}}</div>
+    <div class="panel-body">
+        {% for x in lista %}
+        <a class="col-sm-2" href="/listado/{{x}}">{{x}}</a>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

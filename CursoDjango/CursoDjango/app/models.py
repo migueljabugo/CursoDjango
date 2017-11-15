@@ -6,7 +6,7 @@ from django.db import models
 
 class SerieTV(models.Model):
 	titulo = models.CharField(max_length=30)
-	productora = models.CharField(max_length=10)
+	productora = models.CharField(max_length=20)
 	fecha_publicacion = models.IntegerField()
 	temporadas = models.IntegerField()
 	GENEROS = (

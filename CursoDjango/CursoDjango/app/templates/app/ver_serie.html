@@ -1,0 +1,31 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h1 class="text-center">{{serie.titulo}}</h1>
+<div class="panel panel-default">
+    <div class="panel-heading text-right">
+        <a href="/modificar/{{serie.id}}" class="btn btn-warning">Editar</a>
+        <a href="/borrar/{{serie.id}}" onclick="return confirm('¿Desea eliminar esta serie?');" class="btn btn-danger">Eliminar</a>
+    </div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Titulo</dt>
+            <dd>{{serie.titulo}}</dd>
+            <dt>Productora</dt>
+            <dd>{{serie.productora}}</dd>
+            <dt>Fecha</dt>
+            <dd>{{serie.fecha_publicacion}}</dd>
+            <dt>Temporadas</dt>
+            <dd>{{serie.temporadas}}</dd>
+            <dt>Genero</dt>
+            <dd>{{serie.get_genero_display}}</dd>
+            <dt>Estado</dt>
+            <dd>{{serie.get_estado_display}}</dd>
+        </dl>
+    </div>
+</div>
+
+
+
+{% endblock %}

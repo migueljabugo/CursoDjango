@@ -1,0 +1,19 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<form action="{{action}}" method="POST">
+    <div class="panel panel-default">
+        <div class="panel-heading">Formulario Serie</div>
+        <div class="panel-body">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-primary" type="submit" value="Guardar"/>
+        </div>
+    </div>
+</form>
+
+
+
+
+{% endblock %}
