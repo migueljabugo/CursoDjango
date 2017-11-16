@@ -60,6 +60,7 @@
     <Content Include="app\templates\app\404.html" />
     <Content Include="app\templates\app\archivo.html" />
     <Content Include="app\templates\app\form_serie.html" />
+    <Content Include="app\templates\app\listado.html" />
     <Content Include="app\templates\app\ver_serie.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />

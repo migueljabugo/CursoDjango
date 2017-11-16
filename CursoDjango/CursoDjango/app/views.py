@@ -68,7 +68,7 @@ def crear_serie(request):
 			'app/form_serie.html',
 			{
 				'title':'Nueva serie',
-				'action':'/modificar',
+				'action':'/crear',
 				'form': FormSerieTV(),
 			}
 		)
@@ -99,16 +99,56 @@ def modificar_serie(request, id):
 		return render(request, 'app/404.html')
 
 def archivo(request, parametro):
-	lista = SerieTV.objects.values_list(parametro, flat=True).distinct()
-	
+	if(parametro!="genero" and parametro!="productora" and parametro!="fecha_publicacion"):
+		return render(request, 'app/404.html')
 
+	lista = SerieTV.objects.values_list(parametro, flat=True).distinct().order_by(parametro).reverse()
+	diccionario = {}
+	titulo =""
+	if(parametro=="genero"):
+		titulo="Generos"
+		diccionario = SerieTV.generosByLista(lista)
+	else:
+		for x in lista:
+			diccionario[x]=x
+		if(parametro=="productora"):
+			titulo ="Productoras"
+		elif(parametro=="fecha_publicacion"):
+			titulo ="Años de publicacion"
+			
 	return render(
 		request, 
 		'app/archivo.html',
 		{
-			'title':parametro,
-			'lista':lista,
-			'generos':generos
+			'title':titulo,
+			'parametro':parametro,
+			'lista':diccionario
 		}
 	)
 
+def listado(request, parametro, id):
+	lista = []
+	titulo=""
+	title=id
+	if(parametro=="genero"):
+		titulo="Genero"
+		lista = SerieTV.objects.filter(genero=id).values_list('id', 'titulo')
+		title=SerieTV.generoById(id)
+	elif(parametro=="productora"):
+		titulo="Productora"
+		lista = SerieTV.objects.filter(productora=id).values_list('id', 'titulo')
+	elif(parametro=="fecha_publicacion"):
+		titulo="Años de publicacion"
+		lista = SerieTV.objects.filter(fecha_publicacion=id).values_list('id', 'titulo')
+	
+	if(len(lista)==0):
+		return render(request, 'app/404.html')
+	else:
+		return render(
+			request, 
+			'app/listado.html',
+			{
+				'title':title,
+				'lista':lista
+			}
+		)

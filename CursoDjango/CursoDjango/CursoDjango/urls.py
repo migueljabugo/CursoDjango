@@ -22,6 +22,7 @@ urlpatterns = [
 	url(r'^modificar\/(?P<id>[0-9]+)$', app.views.modificar_serie, name='editar_serie'),
 	url(r'^crear\/{0,1}$', app.views.crear_serie),
 	url(r'^archivo\/(?P<parametro>[a-zA-Z_]+)$', app.views.archivo),
+	url(r'^listado\/(?P<parametro>[a-zA-Z_]+)\/(?P<id>[a-zA-Z\s_0-9]+)$', app.views.listado),
 	url(r'', app.views.notFound),
 
 ]

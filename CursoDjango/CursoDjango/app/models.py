@@ -29,3 +29,18 @@ class SerieTV(models.Model):
 		(3, "Cancelada"),
 		)
 	estado = models.IntegerField(choices = ESTADO)
+
+	def generosByLista(lista):
+		diccionario ={}
+		for num, nombre in SerieTV.GENEROS:
+				for item in lista:
+					if (num==item):
+						diccionario[num]=nombre
+		return diccionario
+	
+	def generoById(id):
+		for num, nombre in SerieTV.GENEROS:
+			if (num==int(id)):
+				return nombre
+		return ""
+				

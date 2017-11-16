@@ -5,9 +5,9 @@
 
 <div class="panel panel-default">
     <div class="panel-body">
-        {% for k,v in lista.items %}
-        <div style="padding-bottom:20px;" class="col-xs-12 col-sm-6 col-md-2">
-            <a href="/listado/{{parametro}}/{{k}}">{{v}}</a>
+        {% for k,v in lista %}
+        <div class="col-xs-12 col-sm-6 col-md-2">
+            <a href="/serie/{{k}}">{{v}}</a>
         </div>
         {% endfor %}
     </div>
